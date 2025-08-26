@@ -1,3 +1,5 @@
+![tag:innovationlab](https://img.shields.io/badge/innovationlab-3D8BD3)
+
 ![Dana Desa Logo](/img/logo-reminder-agent.png)
 
 # 🤖 ICP Reminder System
@@ -245,12 +247,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [Internet Computer Protocol](https://internetcomputer.org/) - Blockchain platform
 - [Fetch.ai](https://fetch.ai/) - uAgent framework
 - [DFINITY Foundation](https://dfinity.org/) - ICP ecosystem
-
-## 📞 Support
-
-- 📧 Email: support@example.com
-- 💬 Discord: [Join our community](https://discord.gg/example)
-- 📖 Documentation: [Full docs](https://docs.example.com)
 
 ---
 
