@@ -1,0 +1,74 @@
+{
+  "name": "ICP Reminder Agent - Production Deployment",
+  "description": "Configuration and scripts for deploying to ICP mainnet",
+  "version": "1.0.0",
+  "deployment": {
+    "network": "ic",
+    "cycles_required": "1000000000000",
+    "estimated_cost_usd": 2.5,
+    "canister_settings": {
+      "compute_allocation": 0,
+      "memory_allocation": 0,
+      "freezing_threshold": 2592000
+    }
+  },
+  "prerequisites": {
+    "dfx_identity": "production",
+    "cycles_wallet": "required",
+    "minimum_cycles": "500000000000"
+  },
+  "steps": [
+    {
+      "step": 1,
+      "description": "Create production identity",
+      "command": "dfx identity new production",
+      "notes": "Store the seed phrase securely"
+    },
+    {
+      "step": 2,
+      "description": "Switch to production identity",
+      "command": "dfx identity use production"
+    },
+    {
+      "step": 3,
+      "description": "Get principal ID",
+      "command": "dfx identity get-principal",
+      "notes": "Save this for cycles wallet setup"
+    },
+    {
+      "step": 4,
+      "description": "Setup cycles wallet",
+      "command": "dfx ledger account-id",
+      "notes": "Send ICP to this address, then convert to cycles"
+    },
+    {
+      "step": 5,
+      "description": "Deploy to mainnet",
+      "command": "dfx deploy --network ic --with-cycles 1000000000000"
+    },
+    {
+      "step": 6,
+      "description": "Verify deployment",
+      "command": "dfx canister --network ic call reminder_backend getRemindersCount"
+    }
+  ],
+  "post_deployment": {
+    "canister_url": "https://{canister-id}.ic0.app",
+    "agentverse_config": {
+      "environment_variables": {
+        "ICP_CANISTER_URL": "https://ic0.app",
+        "CANISTER_ID": "{your-canister-id}"
+      }
+    }
+  },
+  "monitoring": {
+    "cycles_balance": "dfx canister --network ic status reminder_backend",
+    "performance": "Check response times and error rates",
+    "costs": "Monitor cycles consumption daily"
+  },
+  "backup": {
+    "identity_backup": "dfx identity export production > production-identity.pem",
+    "canister_backup": "Regular data exports recommended",
+    "recovery_plan": "Keep seed phrase and identity file secure"
+  }
+}

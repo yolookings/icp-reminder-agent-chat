@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "canisters": {
+    "reminder_backend": {
+      "type": "azle",
+      "main": "src/reminder_backend/main.ts"
+    }
+  },
+  "networks": {
+    "local": {
+      "bind": "127.0.0.1:4943",
+      "type": "ephemeral"
+    },
+    "ic": {
+      "providers": ["https://ic0.app"],
+      "type": "persistent"
+    }
+  }
+}

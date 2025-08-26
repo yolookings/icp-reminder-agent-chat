@@ -1,0 +1,30 @@
+// Version: 1.0.0
+type AssocList__148151300<K, V> = List__304704462<(K, V)>;
+type AssocList__546422902<K, V> = AssocList__148151300<K, V>;
+type Branch__409976549<K, V> =
+  {left : Trie__1040229400<K, V>; right : Trie__1040229400<K, V>; size : Nat};
+type Hash__97758105 = Nat32;
+type Key__584506148<K> = {hash : Hash__97758105; key : K};
+type Leaf__1018907447<K, V> =
+  {keyvals : AssocList__546422902<Key__584506148<K>, V>; size : Nat};
+type List__304704462<T> = ?(T, List__304704462<T>);
+type ReminderId__582210507 = Nat32;
+type Reminder__315399250 =
+  {
+    createdAt : Int;
+    description : Text;
+    isCompleted : Bool;
+    reminderTime : Int;
+    title : Text
+  };
+type Trie__1040229400<K, V> =
+  {#branch : Branch__409976549<K, V>; #empty; #leaf : Leaf__1018907447<K, V>};
+actor {
+  stable var nextId : Nat32;
+  stable var reminders :
+    {
+      #branch : Branch__409976549<ReminderId__582210507, Reminder__315399250>;
+      #empty;
+      #leaf : Leaf__1018907447<ReminderId__582210507, Reminder__315399250>
+    }
+};

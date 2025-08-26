@@ -1,0 +1,22 @@
+{
+  "name": "icp-reminder-backend",
+  "version": "1.0.0",
+  "description": "ICP Canister backend for Reminder Agent using TypeScript",
+  "main": "src/reminder_backend/main.ts",
+  "scripts": {
+    "build": "npx azle reminder_backend",
+    "start": "dfx start --clean",
+    "deploy": "dfx deploy",
+    "deploy-ic": "dfx deploy --network ic",
+    "test": "npm run build && dfx canister call reminder_backend getReminders"
+  },
+  "dependencies": {
+    "azle": "^0.18.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "keywords": ["icp", "canister", "typescript", "blockchain", "reminder"],
+  "author": "Your Name",
+  "license": "MIT"
+}

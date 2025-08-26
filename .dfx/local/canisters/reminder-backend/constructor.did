@@ -1,0 +1,29 @@
+type ReminderId = nat32;
+type Reminder = 
+ record {
+   createdAt: int;
+   description: text;
+   isCompleted: bool;
+   reminderTime: int;
+   title: text;
+ };
+service : {
+  completeReminder: (reminderId: ReminderId) -> (bool);
+  createReminder: (reminder: Reminder) -> (ReminderId);
+  deleteReminder: (reminderId: ReminderId) -> (bool);
+  getAllReminders: () -> (vec record {
+                                ReminderId;
+                                Reminder;
+                              }) query;
+  getDueReminders: () -> (vec record {
+                                ReminderId;
+                                Reminder;
+                              }) query;
+  getPendingReminders: () -> (vec record {
+                                    ReminderId;
+                                    Reminder;
+                                  }) query;
+  getReminder: (reminderId: ReminderId) -> (opt Reminder) query;
+  updateReminder: (reminderId: ReminderId, updatedReminder: Reminder) ->
+   (bool);
+}

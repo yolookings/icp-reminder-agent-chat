@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "canisters": {
+    "reminder-backend": {
+      "type": "motoko",
+      "main": "src/reminder-backend/main.mo"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env"
+}
