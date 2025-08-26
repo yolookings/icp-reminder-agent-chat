@@ -2,21 +2,25 @@
 
 ![Dana Desa Logo](/img/logo-reminder-agent.png)
 
-# 🤖 ICP Reminder System
+# 🤖 ICP Reminder Agent Chat System
 
-A simple blockchain-based reminder system using **Internet Computer Protocol (ICP)** with **Motoko** backend and **uAgent** frontend.
+A comprehensive blockchain-based reminder system using **Internet Computer Protocol (ICP)** with multiple frontend options:
+- **Next.js Web Interface** - Modern web UI with chat interface
+- **Motoko Backend** - Secure smart contract for data storage
+- **uAgent Integration** - AI-powered natural language processing
 
 ## 🎯 Overview
 
-This reminder system stores data permanently on the ICP blockchain, providing security and transparency that traditional reminder apps cannot offer.
+This reminder system combines a modern web interface with blockchain storage, providing a user-friendly chat experience while maintaining the security and transparency of decentralized storage.
 
 ### ✨ Key Features
 
 - 🔐 **Blockchain Storage**: Data stored permanently in ICP Canister
-- 🤖 **Natural Language Interface**: Interact using natural language
-- 🚀 **Motoko Backend**: Simple and efficient smart contract
+- 💬 **Chat Interface**: Modern conversational UI built with Next.js
+- 🤖 **AI Agent Integration**: Natural language processing with uAgent
+- 🚀 **Motoko Backend**: Secure and efficient smart contract
 - 🌐 **Decentralized**: No dependency on centralized servers
-- 📱 **Cross-Platform**: Accessible from various platforms
+- 📱 **Responsive Design**: Works seamlessly across all devices
 
 ## 🏗️ Architecture
 
@@ -93,6 +97,13 @@ This reminder system stores data permanently on the ICP blockchain, providing se
    python main.py
    \`\`\`
 
+4. **Start Web Frontend (Optional)**
+   \`\`\`bash
+   # In another terminal
+   npm run dev
+   # Visit http://localhost:3000
+   \`\`\`
+
 ### Production Mode (Deploy to ICP)
 
 1. **Setup ICP Wallet**
@@ -150,20 +161,39 @@ This reminder system stores data permanently on the ICP blockchain, providing se
 ### Project Structure
 
 \`\`\`
-icp-reminder-system/
-├── src/
+icp-reminder-agentv2-chat/
+├── app/ # Next.js Frontend
+│ ├── page.tsx # Main chat interface
+│ ├── layout.tsx # App layout
+│ ├── globals.css # Global styles
+│ ├── demo/ # Demo pages
+│ ├── docs/ # Documentation pages
+│ └── tutorial/ # Tutorial pages
+├── components/ # React Components
+│ ├── chat-interface.tsx # Chat UI component
+│ ├── reminder-list.tsx # Reminder list component
+│ ├── theme-provider.tsx # Theme management
+│ └── ui/ # Shadcn/ui components
+├── src/ # Backend Source
 │ └── reminder-backend/
 │ └── main.mo # Motoko canister code
 ├── agent/ # uAgent (Python)
 │ ├── main.py # Main agent code
+│ ├── config.py # Agent configuration
 │ ├── requirements.txt # Python dependencies
 │ └── .env.example # Environment template
+├── backend/ # Alternative backend (Azle/TypeScript)
+│ ├── src/reminder_backend/ # TypeScript backend
+│ ├── dfx.json # Backend-specific DFX config
+│ └── package.json # Backend dependencies
 ├── scripts/ # Automation scripts
 │ ├── setup.sh # Complete setup
 │ ├── start-local.sh # Start local environment
 │ ├── start-agent.sh # Start agent
 │ └── test-system.sh # Test everything
-├── dfx.json # DFX configuration
+├── dfx.json # Main DFX configuration
+├── package.json # Next.js dependencies
+├── components.json # Shadcn/ui config
 └── README.md
 \`\`\`
 
